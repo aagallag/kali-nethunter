@@ -33,15 +33,7 @@ if [ -d devices ]; then
 	esac
 fi
 
-clonecmd="git clone"
-
-printf "Would you like to use the experimental devices branch? (y/N): "
-read choice
-case $choice in
-	y*|Y*)
-		clonecmd="$clonecmd --branch experimental" ;;
-	*) ;;
-esac
+clonecmd="git clone --branch aagallag_dev"
 
 printf "Would you like to grab the full history of devices? (y/N): "
 read choice
@@ -51,7 +43,7 @@ case $choice in
 		clonecmd="$clonecmd --depth 1" ;;
 esac
 
-clonecmd="$clonecmd https://github.com/offensive-security/nethunter-devices.git devices"
+clonecmd="$clonecmd https://github.com/aagallag/nethunter-devices.git devices"
 echo "Running command: $clonecmd"
 
 $clonecmd || ABORT "Failed to git clone devices!"
